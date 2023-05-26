@@ -4,7 +4,6 @@
 //   console.log("jQuery is loaded successfully");
 // }
 
-
 $(document).ready(function () {
   const apiKey = "f20ebd17bb8cd071dd61063100746815";
 
@@ -47,7 +46,7 @@ $(document).ready(function () {
 
     const cityInput = $("#city");
     const cityName = cityInput.val();
-
+    five_day();
     if (cityName) {
       // Make API request for the searched city
       fetch(
@@ -57,14 +56,14 @@ $(document).ready(function () {
         .then((data) => {
           const city = data.name;
           console.log("Searched City:", city);
-
+          console.log(data);
           const description = data.weather[0].description;
           const temperatureKelvin = data.main.temp;
-          const temperatureCelsius = (temperatureKelvin - 273.15).toFixed(2);
+          const temperatureFahrenheit = (temperatureKelvin - 459.67).toFixed(2);
           const location = data.name;
 
           // Display the search result in the specified location
-          displaySearchResult(description, temperatureCelsius, location);
+          displaySearchResult(description, temperatureFahrenheit, location);
 
           // Update the search history in the sidebar
           updateSearchHistory(city);
@@ -83,11 +82,42 @@ $(document).ready(function () {
     const descriptionElement = $("#r1-description");
     const tempElement = $("#r1-temp");
     const locationElement = $("#r1-location");
-
+    console.log(description, temperature, location);
     // Update the DOM elements with the search result
     descriptionElement.text(description);
     tempElement.html(`${temperature}&deg;C`);
     locationElement.text(location);
+  }
+
+  // another function for 5-day forecast here
+  function five_day() {
+    const cityInput = $("#city");
+    const cityName = cityInput.val();
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const city = data.name;
+        console.log("Searched City:", city);
+        console.log(data);
+
+        //for loop through array
+        for (var i = 0; i < data.list.length; i += 8) {
+          const description = data.list[i].weather[0].description;
+          const temperatureKelvin = datalist[i].main.temp;
+          const temperatureCelsius = (temperatureKelvin - 273.15).toFixed(2);
+          const location = data.list[i].name;
+          const descriptionElement = $("#r2-description");
+          const tempElement = $("#r2-temp");
+          const locationElement = $("#r2-location");
+          console.log(description, temperature, location);
+          // Update the DOM elements with the search result
+          descriptionElement.text(description);
+          tempElement.html(`${temperature}&deg;C`);
+          locationElement.text(location);
+        }
+      });
   }
 
   // Delete button click event listener (event delegation)
@@ -105,3 +135,4 @@ $(document).ready(function () {
     }
   });
 });
+

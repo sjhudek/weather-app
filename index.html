@@ -47,34 +47,65 @@
           </aside>
           <!-- End Sidebar Content -->
         </div>
-        <main>
-          <div class="col-md-9">
-            <div class="row">
-              <div class="col" id="row-1">
-                <div id="r1-weather">
-                  <div id="r1-description"></div>
-                  <h1 id="r1-temp"></h1>
-                  <div id="r1-location"></div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col" id="row-2">
-                <!-- Second Row Content -->
-                <div class="row">
-                  <div class="col" id="row-1">
-                    <div id="r1-weather">
-                      <div id="r1-description"></div>
-                      <h1 id="r1-temp"></h1>
-                      <div id="r1-location"></div>
-                    </div>
-                  </div>
-                </div>
-                <p>row 2</p>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col" id="row-1">
+              <div id="r1-weather">
+                <div id="r1-description"></div>
+                <h1 id="r1-temp"></h1>
+                <div id="r1-location"></div>
               </div>
             </div>
           </div>
-        </main>
+          <div class="row">
+            <div class="col">
+              <!-- Second Row Content -->
+              <div class="row">
+                <div class="col" id="row-2">
+                  <div id="r2-weather">
+                    <div id="r2-description"></div>
+                    <h1 id="r2-temp"></h1>
+                    <div id="r2-location"></div>
+                  </div>
+                </div>
+              </div>
+              <p>row 2</p>
+            </div>
+          </div>
+
+          <!-- card -->
+
+          <div class="card car-container rounded shadow-lg back-card">
+            <div class="card-body card-top text-center">
+              <div class="city-name my-3"></div>
+                <p>Denver</p>
+                <span>...</span>
+              </div>
+              <div class="card-body">
+                <div class="card-mid row">
+                  <div class="col-8 text-center temp">
+                    <span>30&deg;C</span>
+                  </div>
+                  <div class="col-4 condition-temp">
+                    <p class="condition">Thunder Storm</p>
+                    <p class="high">30&deg;C</p>
+                    <p class="low">27&deg;C</p>
+                  </div>
+                </div>
+                <div class="card-bottom px-5 py-4 row">
+                  <div class="col text-center">
+                    <p>30&deg;C</p>
+                    <span>Feels Like</span>
+                  </div>
+                  <div class="col text-center">
+                    <p>55%</p>
+                    <span>Humidity</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
