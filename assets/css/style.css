@@ -110,7 +110,7 @@ header {
 }
 .high::before {
   content: '';
-  background: url('img/up.svg') no-repeat;
+  /* background: url('img/up.svg') no-repeat; */
   width: 10px;
   height: 15px;
   display: inline-block;
@@ -120,7 +120,7 @@ header {
 
 .low::before {
   content: '';
-  background: url('img/down.svg') no-repeat;
+  /* background: url('img/down.svg') no-repeat; */
   width: 10px;
   height: 15px;
   display: inline-block;

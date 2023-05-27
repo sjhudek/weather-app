@@ -1,9 +1,3 @@
-// if (typeof $ === "undefined") {
-//   console.log("jQuery is not loaded");
-// } else {
-//   console.log("jQuery is loaded successfully");
-// }
-
 $(document).ready(function () {
   const apiKey = "f20ebd17bb8cd071dd61063100746815";
 
@@ -46,7 +40,7 @@ $(document).ready(function () {
 
     const cityInput = $("#city");
     const cityName = cityInput.val();
-    five_day();
+
     if (cityName) {
       // Make API request for the searched city
       fetch(
@@ -55,15 +49,73 @@ $(document).ready(function () {
         .then((response) => response.json())
         .then((data) => {
           const city = data.name;
+          const windSpeed = data.wind.speed;
           console.log("Searched City:", city);
           console.log(data);
           const description = data.weather[0].description;
           const temperatureKelvin = data.main.temp;
-          const temperatureFahrenheit = (temperatureKelvin - 459.67).toFixed(2);
+          const temperatureCelsius = (temperatureKelvin - 273.15).toFixed(2);
+          const temperatureFahrenheit = parseInt(
+            (temperatureCelsius * 9) / 5 + 32
+          ).toFixed(2);
           const location = data.name;
 
           // Display the search result in the specified location
-          displaySearchResult(description, temperatureFahrenheit, location);
+          displaySearchResult(
+            description,
+            temperatureFahrenheit,
+            location,
+            windSpeed,
+            "1" // Display the result in row-1
+          );
+
+          displaySearchResult(
+            description,
+            temperatureFahrenheit,
+            location,
+            windSpeed,
+            "2" // Display the result in row-2
+          );
+
+          displaySearchResult(
+            description,
+            temperatureFahrenheit,
+            location,
+            windSpeed,
+            "3" // Display the result in row-2
+          );
+
+          displaySearchResult(
+            description,
+            temperatureFahrenheit,
+            location,
+            windSpeed,
+            "4" // Display the result in row-2
+          );
+
+          displaySearchResult(
+            description,
+            temperatureFahrenheit,
+            location,
+            windSpeed,
+            "5" // Display the result in row-2
+          );
+
+          displaySearchResult(
+            description,
+            temperatureFahrenheit,
+            location,
+            windSpeed,
+            "6" // Display the result in row-2
+          );
+
+          displaySearchResult(
+            description,
+            temperatureFahrenheit,
+            location,
+            windSpeed,
+            "7" // Display the result in row-2
+          );
 
           // Update the search history in the sidebar
           updateSearchHistory(city);
@@ -77,47 +129,23 @@ $(document).ready(function () {
     }
   });
 
-  // Function to display the search result in the specified location
-  function displaySearchResult(description, temperature, location) {
-    const descriptionElement = $("#r1-description");
-    const tempElement = $("#r1-temp");
-    const locationElement = $("#r1-location");
-    console.log(description, temperature, location);
+  function displaySearchResult(
+    description,
+    temperature,
+    location,
+    windSpeed,
+    rowNumber
+  ) {
+    const descriptionElement = $(`#r${rowNumber}-description`);
+    const tempElement = $(`#r${rowNumber}-temp`);
+    const locationElement = $(`#r${rowNumber}-location`);
+    const windElement = $(`#r${rowNumber}-wind`);
+
     // Update the DOM elements with the search result
     descriptionElement.text(description);
-    tempElement.html(`${temperature}&deg;C`);
+    tempElement.html(`${temperature}&deg;F`);
     locationElement.text(location);
-  }
-
-  // another function for 5-day forecast here
-  function five_day() {
-    const cityInput = $("#city");
-    const cityName = cityInput.val();
-    fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const city = data.name;
-        console.log("Searched City:", city);
-        console.log(data);
-
-        //for loop through array
-        for (var i = 0; i < data.list.length; i += 8) {
-          const description = data.list[i].weather[0].description;
-          const temperatureKelvin = datalist[i].main.temp;
-          const temperatureCelsius = (temperatureKelvin - 273.15).toFixed(2);
-          const location = data.list[i].name;
-          const descriptionElement = $("#r2-description");
-          const tempElement = $("#r2-temp");
-          const locationElement = $("#r2-location");
-          console.log(description, temperature, location);
-          // Update the DOM elements with the search result
-          descriptionElement.text(description);
-          tempElement.html(`${temperature}&deg;C`);
-          locationElement.text(location);
-        }
-      });
+    windElement.html(`Wind Speed: ${(windSpeed * 2.237).toFixed(2)} mph`);
   }
 
   // Delete button click event listener (event delegation)
@@ -129,10 +157,7 @@ $(document).ready(function () {
     if (index !== -1) {
       searchHistory.splice(index, 1); // Remove the city from the search history array
       listItem.remove(); // Remove the list item from the sidebar
-
-      // Save the updated search history to local storage
-      localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+      localStorage.setItem("searchHistory", JSON.stringify(searchHistory)); // Update the search history in local storage
     }
   });
 });
-
