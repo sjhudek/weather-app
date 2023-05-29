@@ -14,8 +14,11 @@ Whenever I travel, it would be essential to have an app that allows me to check 
 - If I click on a city in the search history, the application should present me with the current and future weather conditions for that city once again.
 
 ## Website URL
+https://sjhudek.github.io/weather-app/
 
 ## Website Image
+![Screenshot 2023-05-26 at 23 26 22](https://github.com/sjhudek/weather-app/assets/16738959/01a570a8-de31-499b-884b-3f5c57161789)
+
 
 ## Sources and Inspiration
 - https://youtu.be/nGVoHEZojiQ
