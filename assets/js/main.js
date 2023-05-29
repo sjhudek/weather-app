@@ -54,13 +54,12 @@ $(document).ready(function () {
           console.log(data);
           const description = data.weather[0].description;
           const temperatureKelvin = data.main.temp;
-          const temperatureCelsius = (temperatureKelvin - 273.15).toFixed(2);
-          const temperatureFahrenheit = parseInt(
-            (temperatureCelsius * 9) / 5 + 32
-          ).toFixed(2);
+          const temperatureCelsius = (temperatureKelvin - 273.15);
+          const temperatureFahrenheit = Math.round((temperatureCelsius * 9) / 5 + 32, 10);
+
           const location = data.name;
 
-          // Display the search result in the specified location
+          // Display the sear  / result in the specified location
           displaySearchResult(
             description,
             temperatureFahrenheit,
@@ -143,7 +142,7 @@ $(document).ready(function () {
 
     // Update the DOM elements with the search result
     descriptionElement.text(description);
-    tempElement.html(`${temperature}&deg;F`);
+    tempElement.html(`${Math.round(temperature)}&deg;F`);
     locationElement.text(location);
     windElement.html(`Wind Speed: ${(windSpeed * 2.237).toFixed(2)} mph`);
   }

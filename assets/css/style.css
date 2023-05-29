@@ -6,7 +6,7 @@ header {
   text-align: center;
   margin: 0 auto;
   padding: 0.5em 0.5em 0.5em;
-  background-color: midnightblue;
+  background-color: rgb(60, 60, 247);
   color: white;
 }
 
@@ -59,6 +59,7 @@ header {
 
 #row-1 {
   background-color: blue;
+  color: white;
 }
 
 .title {
@@ -137,28 +138,6 @@ header {
   margin: auto;
 }
 
-.card-bottom {
-  line-height: 0.5;
-}
-.card-bottom span {
-  font-size: 12px;
-}
-.card-bottom p {
-  font-size: 50px;
-  font-weight: 100;
-  letter-spacing: -2px;
-}
-/* .col-8 {
-  background-color: aqua;
-}
-
-.col-4 {
-  background-color: yellow;
-} */
-
-/* .sidebar-nav li {
-  background-color: yellow;
-} */
 
 @media screen and (max-width: 768px) {
   #side-nav {

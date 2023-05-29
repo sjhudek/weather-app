@@ -1,141 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1 id="h1">Weather Dashboard</h1>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1 id="h1">Weather Dashboard</h1>
+  </header>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-3 sidebar">
-          <!-- Left Sidebar Content -->
-          <aside>
-            <div class="d-flex">
-              <div class="sidebar" id="side-nav">
-                <div class="header-box px-2 pt-3 pb-4">
-                  <h1 class="fs-4">
-                    Search for a City
-                  </h1>
-                  <form class="form-inline mx-auto" id="form">
-                    <input class="form-control mr-sm-2" type="text"
-                      placeholder="City" aria-label="Search" id="city" />
-                    <button class="btn btn-light my-2 my-sm-0" id="search-btn"
-                      type="submit">Search City</button>
-                  </form>
-                </div>
-                <ul class="list-unstyled px-2" id="search-history">
-                  <!-- Search history items will be dynamically added here -->
-                </ul>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 sidebar">
+        <aside>
+          <div class="d-flex">
+            <div class="sidebar" id="side-nav">
+              <div class="header-box px-2 pt-3 pb-4">
+                <h1 class="fs-4">Search for a City</h1>
+                <form class="form-inline mx-auto" id="form">
+                  <input class="form-control mr-sm-2" type="text" placeholder="City" aria-label="Search" id="city">
+                  <button class="btn btn-light my-2 my-sm-0" id="search-btn" type="submit">Search City</button>
+                </form>
               </div>
-              <div class="content">
-                <!-- Content -->
-              </div>
+              <ul class="list-unstyled px-2" id="search-history">
+                <!-- Search history items will be dynamically added here -->
+              </ul>
             </div>
-          </aside>
-        </div>
-        <!-- End Sidebar Content -->
-        <div class="col-md-9">
-          <div class="row">
-            <div class="col" id="row-1">
-              <div id="r1-weather">
-                <div id="r1-description"></div>
-                <h1 id="r1-temp"></h1>
-                <div id="r1-location"></div>
-                <div id="r1-wind"></div>
-              </div>
+            <div class="content">
+              <!-- Content -->
             </div>
           </div>
-          <div class="row">
-            <div class="col">
-              <!-- Second Row Content -->
-
-              <!-- day 1 -->
-              <div class="row">
-                <div class="col" id="row-2">
-                  <div id="r2-weather">
-                    <div id="r2-description"></div>
-                    <h1 id="r2-temp"></h1>
-                    <div id="r2-location"></div>
-                    <div id="r2-wind">wind-1</div>
-                  </div>
+        </aside>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col" id="row-1">
+            <div id="r1-weather">
+              <div id="r1-description"></div>
+              <div id="r1-temp"></div>
+              <div id="r1-location"></div>
+              <div id="r1-wind"></div>
+              <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <!-- Second Row Content -->
+            <div class="row">
+              <div class="col" id="row-2">
+                <div class="weather-forecastweather-forecast-item" id="r2-weather">
+                  <div id="r2-description"></div>
+                  <div id="r2-temp"></div>
+                  <div id="r2-location"></div>
+                  <div id="r2-wind"></div>
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                 </div>
-
-                <!-- day 2 -->
-                <div class="col" id="row-2">
-                  <div id="r3-weather">
-                    <div id="r3-description"></div>
-                    <h1 id="r3-temp"></h1>
-                    <div id="r3-location"></div>
-                    <div id="r3-wind">wind-2</div>
-                  </div>
+              </div>
+              <div class="col" id="row-2">
+                <div class="weather-forecastweather-forecast-item" id="r3-weather">
+                  <div id="r3-description"></div>
+                  <div id="r3-temp"></div>
+                  <div id="r3-location"></div>
+                  <div id="r3-wind"></div>
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                 </div>
-
-                <!-- day 3 -->
-
-                <div class="col" id="row-2">
-                  <div id="r4-weather">
-                    <div id="r4-description"></div>
-                    <h1 id="r4-temp"></h1>
-                    <div id="r4-location"></div>
-                    <div id="r4-wind">wind-3</div>
-                  </div>
+              </div>
+              <div class="col" id="row-2">
+                <div class="weather-forecast weather-forecast-item" id="r4-weather">
+                  <div id="r4-description"></div>
+                  <div id="r4-temp"></div>
+                  <div id="r4-location"></div>
+                  <div id="r4-wind"></div>
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                 </div>
-
-                <!-- day 4 -->
-
-                <div class="col" id="row-2">
-                  <div id="r5-weather">
-                    <div id="r5-description"></div>
-                    <h1 id="r5-temp"></h1>
-                    <div id="r5-location"></div>
-                    <div id="r5-wind">wind-4</div>
-                  </div>
+              </div>
+              <div class="col" id="row-2">
+                <div class="weather-forecast weather-forecast-item" id="r5-weather">
+                  <div id="r5-description"></div>
+                  <div id="r5-temp"></div>
+                  <div id="r5-location"></div>
+                  <div id="r5-wind"></div>
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                 </div>
-
-                <!-- day 5 -->
-
-                <div class="col" id="row-2">
-                  <div id="r6-weather">
-                    <div id="r6-description"></div>
-                    <h1 id="r6-temp"></h1>
-                    <div id="r6-location"></div>
-                    <div id="r6-wind">wind-5</div>
-                  </div>
+              </div>
+              <div class="col" id="row-2">
+                <div class="weather-forecast weather-forecast-item" id="r6-weather">
+                  <div id="r6-description"></div>
+                  <div id="r6-temp"></div>
+                  <div id="r6-location"></div>
+                  <div id="r6-wind"></div>
+                  <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather icon" class="w-icon">
                 </div>
-
-                <!-- day 6 -->
-
-                <div class="col" id="row-2">
-                  <div id="r7-weather">
-                    <div id="r7-description"></div>
-                    <h1 id="r7-temp"></h1>
-                    <div id="r7-location"></div>
-                    <div id="r7-wind">wind-6</div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-      crossorigin="anonymous"></script>
-    <script src="./assets/js/main.js"></script>
-  </body>
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
 </html>
